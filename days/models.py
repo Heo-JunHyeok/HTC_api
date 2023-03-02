@@ -2,17 +2,16 @@ from django.db import models
 
 
 # Create your models here.
-class Training(models.Model):
-    name = models.CharField(max_length=20)
-    icon = models.URLField()
+class Health(models.Model):
+    health = models.CharField(max_length=20)
+    icon = models.URLField(blank=True, null=True)
+    color = models.CharField(max_length=10, blank=True)
 
     def __str__(self):
-        return self.name
+        return self.health
 
 
 class Count(models.Model):
-    training = models.ForeignKey(
-        Training, on_delete=models.CASCADE, related_name="counts"
-    )
-    number = models.IntegerField()
+    health = models.ForeignKey(Health, on_delete=models.CASCADE, related_name="counts")
+    count = models.IntegerField()
     date = models.DateField()

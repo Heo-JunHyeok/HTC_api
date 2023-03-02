@@ -1,11 +1,21 @@
-from rest_framework.generics import ListCreateAPIView
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from django.shortcuts import render
-from .models import Training
-from .serializers import TrainingSerializer
+from .models import Health, Count
+from .serializers import HealthSerializer, CountSerializer
 
 # Create your views here.
 
 
-class TrainingList(ListCreateAPIView):
-    queryset = Training.objects.all()
-    serializer_class = TrainingSerializer
+class HealthList(ListCreateAPIView):
+    queryset = Health.objects.all()
+    serializer_class = HealthSerializer
+
+
+class HealthDetail(RetrieveUpdateDestroyAPIView):
+    queryset = Health.objects.all()
+    serializer_class = HealthSerializer
+
+
+class DailyHealth(ListCreateAPIView):
+    queryset = Count.objects.all()
+    serializer_class = CountSerializer

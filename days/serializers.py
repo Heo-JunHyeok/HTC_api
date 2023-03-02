@@ -1,25 +1,26 @@
 from rest_framework import serializers
-from .models import Training, Count
+from .models import Health, Count
 
 
-class TrainingSerializer(serializers.ModelSerializer):
+class HealthSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Training
+        model = Health
         fields = (
             "id",
-            "name",
-            "number",
+            "health",
             "icon",
+            "color",
         )
 
 
 class CountSerializer(serializers.ModelSerializer):
-    training = serializers.StringRelatedField()
+    health = serializers.StringRelatedField()
 
     class Meta:
         model = Count
         fields = (
-            "training",
-            "number",
+            "id",
             "date",
+            "health",
+            "count",
         )

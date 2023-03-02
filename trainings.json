@@ -1,0 +1,11 @@
+[
+    {
+        "model":"days.training",
+        "pk":1,
+        "fields":{
+            "name":,
+            "number":,
+            "icon":,
+        }
+    },
+]
